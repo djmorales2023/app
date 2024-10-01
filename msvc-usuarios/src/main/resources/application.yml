@@ -1,0 +1,19 @@
+spring:
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://127.0.0.1:9000
+      client:
+        registration:
+          msvc-usuarios:
+            provider: oauth-server
+            client-id: msvc-usuarios
+            client-secret: 12345678
+            authorization-grant-type: authorization_code
+            redirect-uri: http://127.0.0.1:8001/authorized
+            client-name: msvc-usuarios
+            scope: openid,profile,read,write
+        provider:
+          oauth-server:
+            issuer-uri: http://127.0.0.1:9000
